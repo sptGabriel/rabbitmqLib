@@ -1,0 +1,6 @@
+{
+  "logger": {
+    "enabled": "true",
+    "level": "error"
+  }
+}
