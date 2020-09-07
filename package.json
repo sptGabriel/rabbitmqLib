@@ -1,8 +1,7 @@
 {
   "name": "rabbitmq",
   "version": "1.0.0",
-  "main": "build/index.js",
-  "typings": "build/index.d.ts",
+  "main": "index.ts",
   "license": "MIT",
   "scripts": {
     "build": "rimraf ./build && tsc",
