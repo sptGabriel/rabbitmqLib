@@ -5,7 +5,7 @@
     "Gabriel Costa Cerqueira <gabrielcerqueira96@hotmail.com> "
   ],
   "description": "helpers for rabbitmq",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "keywords": [
     "typescript",
     "rabbitmq",
