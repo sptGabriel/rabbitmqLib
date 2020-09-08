@@ -2,6 +2,7 @@ import { Connection, Channel, connect } from 'amqplib';
 import { Logger } from '../utils/logger';
 import { sleep } from '../utils/sleep';
 import { retry } from 'utils/retry';
+
 export interface IMessage {
   publishedAt: Date;
 }
@@ -108,7 +109,7 @@ export class RabbitServer implements IRabbitServer<IMessage> {
     if (this.channel) await this.channel.close();
     await this.connection.close();
   };
-  private initChannel = async (queue: string) => {
+  private initChannel = async (queue: string): Promise<Channel> => {
     this.channel = await this.connection.createChannel();
     await this.channel.assertQueue(queue, { durable: true });
     return this.channel;
