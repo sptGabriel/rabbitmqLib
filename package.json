@@ -1,7 +1,7 @@
 {
   "name": "rabbitmq",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "dist/index",
   "license": "MIT",
   "scripts": {
     "build": "rimraf ./build && tsc",
@@ -26,5 +26,12 @@
     "dotenv": "^8.2.0",
     "pino": "^6.5.1",
     "reflect-metadata": "^0.1.13"
-  }
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/utils/logger.js",
+    "dist/utils/retry.js",
+    "dist/utils/sleep.js"
+  ]
 }
