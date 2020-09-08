@@ -30,13 +30,20 @@
     "dist/utils/sleep.js"
   ],
   "scripts": {
-    "build": "rimraf ./build && tsc",
+    "start": "node dist/index.js",
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "tsc": "tsc"
   },
   "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
     "@types/amqplib": "^0.5.13",
     "@types/config": "^0.0.36",
     "@types/pino": "^6.3.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "jest": "^26.4.2",
     "prettier": "^2.1.1",
     "supertest": "^4.0.2",
