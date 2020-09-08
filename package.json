@@ -1,8 +1,34 @@
 {
-  "name": "rabbitmq",
+  "name": "spt-rabbit-helpers",
+  "author": "Gabriel Costa Cerqueira <gabrielcerqueira96@hotmail.com> ",
+  "contributors": [
+    "Gabriel Costa Cerqueira <gabrielcerqueira96@hotmail.com> "
+  ],
+  "description": "helpers for rabbitmq",
   "version": "1.0.0",
-  "main": "dist/index",
-  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "rabbitmq",
+    "helpers"
+  ],
+  "bugs": {
+    "url": "https://github.com/sptGabriel/rabbitmqLib/issues",
+    "email": "gabrielcerqueira96@hotmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sptGabriel/rabbitmqLib.git"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/utils/logger.js",
+    "dist/utils/retry.js",
+    "dist/utils/sleep.js"
+  ],
   "scripts": {
     "build": "rimraf ./build && tsc",
     "tsc": "tsc"
@@ -27,11 +53,6 @@
     "pino": "^6.5.1",
     "reflect-metadata": "^0.1.13"
   },
-  "files": [
-    "dist/index.js",
-    "dist/index.d.ts",
-    "dist/utils/logger.js",
-    "dist/utils/retry.js",
-    "dist/utils/sleep.js"
-  ]
+  "main": "dist/index",
+  "license": "MIT"
 }
