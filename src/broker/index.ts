@@ -1,7 +1,7 @@
 import { Connection, Channel, connect } from 'amqplib';
 import { Logger } from '../utils/logger';
 import { sleep } from '../utils/sleep';
-import { retry } from 'utils/retry';
+import { retry } from '../utils/retry';
 
 export interface IMessage {
   publishedAt: Date;
