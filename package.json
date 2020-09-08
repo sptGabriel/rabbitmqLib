@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "amqplib": "^0.6.0",
-    "config": "^3.3.1",
     "dotenv": "^8.2.0",
     "pino": "^6.5.1",
     "reflect-metadata": "^0.1.13"

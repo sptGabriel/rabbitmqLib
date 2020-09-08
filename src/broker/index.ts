@@ -38,20 +38,35 @@ export class RabbitServer implements IRabbitServer<IMessage> {
     });
   }
   public start = async () => {
-    if (this.connection || !this.rabbitUrl) {
-      const message = !this.rabbitUrl
-        ? 'The host of rabbitmq was not found in the environment variables'
-        : 'Connection has already been established';
-      throw new Error(message);
-    }
-    this.connection = await retry<Connection>(
-      () => connect(this.rabbitUrl),
-      10,
-      1000
-    ).then((connection) => {
-      Logger.info('connect to RabbitMQ success');
-      return this.listeners();
+    return new Promise<Connection>((resolve, reject) => {
+      if (this.connection || !this.rabbitUrl) {
+        const message = !this.rabbitUrl
+          ? 'The host of rabbitmq was not found in the environment variables'
+          : 'Connection has already been established';
+        Logger.info(message);
+        reject(new Error(message));
+      }
+      retry<Connection>(() => connect(this.rabbitUrl), 10, 1000)
+        .then((conn) => {
+          this.connection = conn;
+          resolve(conn);
+        })
+        .catch((err) => reject(new Error(err)));
     });
+    // if (this.connection || !this.rabbitUrl) {
+    //   const message = !this.rabbitUrl
+    //     ? 'The host of rabbitmq was not found in the environment variables'
+    //     : 'Connection has already been established';
+    //   throw new Error(message);
+    // }
+    // this.connection = await retry<Connection>(
+    //   () => connect(this.rabbitUrl),
+    //   10,
+    //   1000
+    // ).then((connection) => {
+    //   Logger.info('connect to RabbitMQ success');
+    //   return this.listeners();
+    // });
   };
   // public start = async () => {
   //   try {
